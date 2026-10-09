@@ -67,19 +67,3 @@ require("conf.animation")
 local noctalia_theme = require("noctalia")
 noctalia_theme.apply_theme()
 
--- Sync Keyboard Backlight RGB to Noctalia Theme Primary Color
-local function sync_keyboard_rgb()
-    local primary = noctalia_theme.colors and noctalia_theme.colors.primary or ""
-    local hex = primary:match("rgb%((%x+)%)")
-    if hex and #hex == 6 then
-        local r = tonumber(hex:sub(1, 2), 16)
-        local g = tonumber(hex:sub(3, 4), 16)
-        local b = tonumber(hex:sub(5, 6), 16)
-        local f = io.open("/sys/devices/platform/tuxedo_keyboard/leds/rgb:kbd_backlight/multi_intensity", "w")
-        if f then
-            f:write(string.format("%d %d %d\n", r, g, b))
-            f:close()
-        end
-    end
-end
-sync_keyboard_rgb()

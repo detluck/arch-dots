@@ -1,0 +1,29 @@
+# [widget.custom_button_2]
+# type = "custom_button"
+# exec = "if [ $(( $(date +%s) % 4 )) -lt 2 ]; then echo '{\"label\": \"ONLINE\", \"glyph\": \"server\", \"tooltip\": \"Status: Active\"}'; else echo '{\"label\": \"OFFLINE\", \"glyph\": \"server-off\", \"tooltip\": \"Status: Standby\"}'; fi"
+# interval = 2000
+
+# [widget.pacman_updates]
+# type = "custom_button"
+# glyph = "pacman"
+# exec = "count=$(checkupdates 2>/dev/null | wc -l); echo '{\"label\": \"'$count'\", \"glyph\": \"pacman\", \"tooltip\": \"'$count' updates available\"}'"
+# interval = 300000
+
+# [widget.pacman_updates.actions]
+# left = "exec kitty --hold -e sudo pacman -Syu"
+
+# [widget.mic_status]
+# type = "custom_button"
+# exec = "if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then echo '{\"label\": \"MUTED\", \"glyph\": \"microphone-off\", \"tooltip\": \"Microphone muted (Click to unmute)\"}'; else echo '{\"label\": \"LIVE\", \"glyph\": \"microphone\", \"tooltip\": \"Microphone active (Click to mute)\"}'; fi"
+# interval = 1000
+
+# [widget.mic_status.actions]
+# left = "exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+# [widget.git_status]
+# type = "custom_button"
+# exec = "~/.config/noctalia/scripts/git-status.sh"
+# interval = 3000
+
+# [widget.git_status.actions]
+# left = "exec kitty --directory /home/detluck/Projects/noctalia"

@@ -105,6 +105,8 @@
 | :--- | :--- | :--- |
 | **`XF86MonBrightnessUp`** | `brightnessctl` | Increase screen brightness by +10% |
 | **`XF86MonBrightnessDown`** | `brightnessctl` | Decrease screen brightness by -10% |
+| **`Win + F5`** | `ytm-volume.sh` + `noctalia` | Decrease YouTube Music volume (-5%) |
+| **`Win + F6`** | `ytm-volume.sh` + `noctalia` | Increase YouTube Music volume (+5%) |
 | **`Win + F8`** | `brightnessctl` + `noctalia` | Decrease keyboard backlight (-10%) |
 | **`Win + F9`** | `brightnessctl` + `noctalia` | Increase keyboard backlight (+10%) |
 | **`XF86AudioRaiseVolume`** | `wpctl` | Increase audio volume (+2%) |
@@ -114,3 +116,7 @@
 | **`XF86AudioPlay / Pause`** | `playerctl` | Play / Pause media playback |
 | **`XF86AudioNext`** | `playerctl` | Skip to next track |
 | **`XF86AudioPrev`** | `playerctl` | Return to previous track |
+| **`Win + Alt + 1`** | `playerctl` | Return to previous track (`|<<`) |
+| **`Win + Alt + 2`** | `playerctl` | Play / Pause media playback (`⏯`) |
+| **`Win + Alt + 3`** | `playerctl` | Skip to next track (`>>|`) |
+| **`Win + Alt + 4`** | `playerctl` | Stop media playback (`⏹`) |

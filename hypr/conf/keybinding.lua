@@ -100,6 +100,11 @@ end
 -- Brightness
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -q s +10%"))
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -q s 10%-"))
+-- YouTube Music Volume (isolated PipeWire stream + Noctalia OSD)
+hl.bind(mainMod .. " + F5", hl.dsp.exec_cmd("/home/detluck/.local/bin/ytm-volume.sh down"), { repeating = true, locked = true })
+hl.bind(mainMod .. " + F6", hl.dsp.exec_cmd("/home/detluck/.local/bin/ytm-volume.sh up"), { repeating = true, locked = true })
+
+-- Keyboard backlight
 hl.bind(
 	mainMod .. " + F8",
 	hl.dsp.exec_cmd("bash -c 'val=$(brightnessctl -d rgb:kbd_backlight s 10%- -m | cut -d, -f4 | tr -d \"%\"); noctalia msg keyboard-backlight-osd \"$val\"'"),
@@ -125,8 +130,14 @@ hl.bind(
 
 -- Media keys
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl pause"))
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl pause"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("pactl set-source-mute @DEFAULT_SOURCE@ toggle"))
+
+-- Media player controls (Option 1)
+hl.bind(mainMod .. " + ALT + 1", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+hl.bind(mainMod .. " + ALT + 2", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind(mainMod .. " + ALT + 3", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind(mainMod .. " + ALT + 4", hl.dsp.exec_cmd("playerctl stop"), { locked = true })
